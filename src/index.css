@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary-hue: 200;
+    --primary-saturation: 90%;
+    --primary-lightness: 45%;
+    --color-primary: #0284c7;
+    --color-primary-hover: #0369a1;
+  }
+
+  [data-theme='corporate-dark'] {
+    --color-primary: #38bdf8;
+    --color-primary-hover: #0ea5e9;
+  }
+
+  [data-theme='ocean-blue'] {
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+  }
+
+  [data-theme='emerald-green'] {
+    --color-primary: #059669;
+    --color-primary-hover: #047857;
+  }
+
+  [data-theme='royal-purple'] {
+    --color-primary: #7c3aed;
+    --color-primary-hover: #6d28d9;
+  }
+
+  [data-theme='slate-gray'] {
+    --color-primary: #475569;
+    --color-primary-hover: #334155;
+  }
+
+  [data-theme='modern-teal'] {
+    --color-primary: #0d9488;
+    --color-primary-hover: #0f766e;
+  }
+
+  [data-theme='executive-navy'] {
+    --color-primary: #1e3a8a;
+    --color-primary-hover: #172554;
+  }
+
+  [data-theme='warm-sand'] {
+    --color-primary: #b45309;
+    --color-primary-hover: #92400e;
+  }
+
+  [data-theme='high-contrast'] {
+    --color-primary: #000000;
+    --color-primary-hover: #1e293b;
+  }
+}
+
+/* Print optimizations */
+@media print {
+  .no-print,
+  nav,
+  aside,
+  header,
+  button:not(.allow-print),
+  .modal-backdrop:not(.printable-modal-wrapper),
+  .toast-container,
+  footer {
+    display: none !important;
+  }
+
+  div[class*="lg:pl-72"] {
+    padding-left: 0 !important;
+  }
+
+  body, #root, main {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Crucial: remove overflow clipping so table headers repeat on every page */
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .overflow-hidden,
+  div {
+    overflow: visible !important;
+  }
+
+  .printable-modal-wrapper {
+    position: static !important;
+    inset: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    backdrop-filter: none !important;
+  }
+
+  .printable-modal {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+  }
+
+  .printable-document-body {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Table header repeating on every printed page */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  tfoot {
+    display: table-footer-group !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  tbody {
+    display: table-row-group !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  th, td {
+    color: #000000 !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+  }
+
+  .print-header {
+    display: block !important;
+    margin-bottom: 24px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 2px solid #0f172a !important;
+  }
+
+  @page {
+    margin: 10mm;
+    size: auto;
+  }
+}
+
+@media screen {
+  .print-header {
+    display: none !important;
+  }
+}
+
+/* Hidden scrollbar: Allow scrolling smoothly but hide the visual scrollbar completely */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
